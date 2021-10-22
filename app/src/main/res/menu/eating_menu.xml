@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item
+        android:id="@+id/about"
+        android:title="@string/read_about"/>
+    <item
+        android:id="@+id/howItWorks"
+        android:title="@string/how_it_works"/>
+    <item
+        android:id="@+id/change_eat_times"
+        android:title="@string/change_add_times"/>
+</menu>

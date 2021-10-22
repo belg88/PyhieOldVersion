@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_menu_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="gleb.apps.pyhie.mainMenu.MainHabitsFragment"
+        android:label="Main Habits"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_sleepingMain"
+            app:destination="@id/sleepingMain" />
+        <action
+            android:id="@+id/action_homeFragment_to_eatingMain"
+            app:destination="@id/eatingMain" />
+        <action
+            android:id="@+id/action_homeFragment_to_planningHabitToday"
+            app:destination="@id/planningHabitToday" />
+        <action
+            android:id="@+id/action_homeFragment_to_cleaningMain"
+            app:destination="@id/cleaningMain" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyAdvice"
+            app:destination="@id/dailyAdvice" />
+        <action
+            android:id="@+id/action_homeFragment_to_dailyAdviceList"
+            app:destination="@id/dailyAdviceList" />
+        <action
+            android:id="@+id/action_homeFragment_to_levelIsCompleted"
+            app:destination="@id/levelIsCompleted" />
+        <action
+            android:id="@+id/action_homeFragment_to_howItWorksFragment"
+            app:destination="@id/howItWorksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondaryFragment"
+        android:name="gleb.apps.pyhie.mainMenu.GoodHabitsFragment"
+        android:label="fragment_secondary"
+        tools:layout="@layout/fragment_good_habits" >
+        <action
+            android:id="@+id/action_secondaryFragment_to_dailyExercises"
+            app:destination="@id/dailyExercises" />
+    </fragment>
+    <fragment
+        android:id="@+id/challengeFragment"
+        android:name="gleb.apps.pyhie.mainMenu.BadHabitsFragment"
+        android:label="fragment_challenge"
+        >
+        <action
+            android:id="@+id/action_challengeFragment_to_acoholDrinking2"
+            app:destination="@id/acoholDrinking2" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="gleb.apps.pyhie.mainMenu.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <fragment
+        android:id="@+id/sleepingMain"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.SleepingMain"
+        android:label="SleepingMain"
+        tools:layout="@layout/sleeping_main">
+        <argument
+            android:name="sleep_info"
+            app:argType="gleb.apps.pyhie.pojos.SleepingInfo" />
+        <action
+            android:id="@+id/action_sleepingMain_to_changeSleepTimes"
+            app:destination="@id/changeSleepTimes"
+            app:popUpTo="@id/sleepingMain"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_sleepingMain_to_habitIsCompleted"
+            app:destination="@id/habitIsCompleted"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_sleepingMain_to_howItWorksFragment"
+            app:destination="@id/howItWorksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeSleepTimes"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.ChangeSleepTimes"
+        android:label="fragment_change_sleep_times"
+        tools:layout="@layout/fragment_change_sleep_times" >
+        <argument
+            android:name="sleep_info"
+            app:argType="gleb.apps.pyhie.pojos.SleepingInfo" />
+        <action
+            android:id="@+id/action_changeSleepTimes_to_sleepingMain"
+            app:destination="@id/sleepingMain"
+            app:popUpTo="@id/homeFragment" />
+        <action
+            android:id="@+id/action_changeSleepTimes_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/main_menu_navigation" />
+    </fragment>
+    <fragment
+        android:id="@+id/habitIsCompleted"
+        android:name="gleb.apps.pyhie.HabitIsCompleted"
+        android:label="fragment_habit_is_completed"
+        tools:layout="@layout/fragment_habit_is_completed" >
+        <action
+            android:id="@+id/action_habitIsCompleted_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="habitName"
+            app:argType="string" />
+        <argument
+            android:name="points"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/eatingMain"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.eatingHabit.EatingMain"
+        android:label="EatingMain"
+        tools:layout="@layout/fragment_eating_main">
+        <argument
+            android:name="eatingInfo"
+            app:argType="gleb.apps.pyhie.pojos.EatingInfo" />
+        <action
+            android:id="@+id/action_eatingMain_to_changeEatTimesFragment"
+            app:destination="@id/changeEatTimesFragment" />
+        <action
+            android:id="@+id/action_eatingMain_to_habitIsCompleted"
+            app:destination="@id/habitIsCompleted" />
+        <action
+            android:id="@+id/action_eatingMain_to_howItWorksFragment"
+            app:destination="@id/howItWorksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeEatTimesFragment"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.eatingHabit.ChangeEatTimesFragment"
+        android:label="fragment_change_eat_times"
+        tools:layout="@layout/fragment_change_eat_times" >
+        <argument
+            android:name="eatingInfo"
+            app:argType="gleb.apps.pyhie.pojos.EatingInfo" />
+        <action
+            android:id="@+id/action_changeEatTimesFragment_to_eatingMain"
+            app:destination="@id/eatingMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/planningHabitMain"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.planningHabit.PlanningHabitTomorrow"
+        android:label="PlanningHabitMain" />
+    <fragment
+        android:id="@+id/planningHabitToday"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.planningHabit.PlanningHabitToday"
+        android:label="PlanningHabitToday" >
+        <action
+            android:id="@+id/action_planningHabitToday_to_planningHabitMain"
+            app:destination="@id/planningHabitMain" />
+        <action
+            android:id="@+id/action_planningHabitToday_to_habitIsCompleted"
+            app:destination="@id/habitIsCompleted" />
+        <action
+            android:id="@+id/action_planningHabitToday_to_howItWorksFragment"
+            app:destination="@id/howItWorksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cleaningMain"
+        android:name="gleb.apps.pyhie.mainHabits.sleepingHabit.cleaningHabit.CleaningMain"
+        android:label="fragment_cleaning_main"
+        tools:layout="@layout/fragment_cleaning_main" >
+        <action
+            android:id="@+id/action_cleaningMain_to_habitIsCompleted"
+            app:destination="@id/habitIsCompleted" />
+        <argument
+            android:name="cleaningInfo"
+            app:argType="gleb.apps.pyhie.mainHabits.sleepingHabit.cleaningHabit.CleaningInfo" />
+        <action
+            android:id="@+id/action_cleaningMain_to_howItWorksFragment"
+            app:destination="@id/howItWorksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyAdvice"
+        android:name="gleb.apps.pyhie.mainMenu.DailyAdvice"
+        android:label="fragment_daily_advice"
+        tools:layout="@layout/fragment_daily_advice" >
+        <argument
+            android:name="dayNumber"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyAdviceList"
+        android:name="gleb.apps.pyhie.mainMenu.DailyAdviceList"
+        android:label="fragment_daily_advice_list"
+        tools:layout="@layout/fragment_daily_advice_list" >
+        <action
+            android:id="@+id/action_dailyAdviceList_to_dailyAdvice"
+            app:destination="@id/dailyAdvice" />
+        <argument
+            android:name="numberOfDays"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/levelIsCompleted"
+        android:name="gleb.apps.pyhie.LevelIsCompleted"
+        android:label="fragment_level_is_completed"
+        tools:layout="@layout/fragment_level_is_completed" >
+        <argument
+            android:name="level"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyExercises"
+        android:name="gleb.apps.pyhie.goodHabits.DailyExercises"
+        android:label="fragment_daily_exercises"
+        tools:layout="@layout/fragment_daily_exercises" />
+    <fragment
+        android:id="@+id/acoholDrinking2"
+        android:name="gleb.apps.pyhie.badHabits.AcoholDrinking"
+        android:label="fragment_acohol_drinking"
+        tools:layout="@layout/fragment_acohol_drinking" />
+    <fragment
+        android:id="@+id/howItWorksFragment"
+        android:name="gleb.apps.pyhie.mainMenu.HowItWorksFragment"
+        android:label="fragment_how_it_works"
+        tools:layout="@layout/fragment_how_it_works" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+</navigation>

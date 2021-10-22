@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/intro_navigation"
+    app:startDestination="@id/introFirstPart">
+
+    <fragment
+        android:id="@+id/introFirstPart"
+        android:name="gleb.apps.pyhie.intro.IntroFirstPart"
+        android:label="fragment_intro_first_part"
+        tools:layout="@layout/fragment_intro_first_part" >
+        <action
+            android:id="@+id/action_introFirstPart_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <action
+            android:id="@+id/action_introFirstPart_to_introSecondPart"
+            app:destination="@id/introSecondPart" />
+        <action
+            android:id="@+id/action_introFirstPart_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="gleb.apps.pyhie.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/introSecondPart"
+        android:name="gleb.apps.pyhie.intro.IntroSecondPart"
+        android:label="fragment_intro_second_part"
+        tools:layout="@layout/fragment_intro_second_part" >
+        <action
+            android:id="@+id/action_introSecondPart_to_introThirdPart"
+            app:destination="@id/introThirdPart" />
+    </fragment>
+    <fragment
+        android:id="@+id/introThirdPart"
+        android:name="gleb.apps.pyhie.intro.IntroThirdPart"
+        android:label="fragment_intro_third_part"
+        tools:layout="@layout/fragment_intro_third_part" >
+        <action
+            android:id="@+id/action_introThirdPart_to_mainActivity"
+            app:destination="@id/mainActivity" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="gleb.apps.pyhie.intro.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in" >
+        <action
+            android:id="@+id/action_logInFragment_to_mainActivity"
+            app:destination="@id/mainActivity" />
+    </fragment>
+</navigation>

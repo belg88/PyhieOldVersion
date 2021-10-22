@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="savedState"
+            type="gleb.apps.pyhie.mainHabits.sleepingHabit.cleaningHabit.CleaningSavedState" />
+    </data>
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraint_layout"
+        app:layoutDescription="@xml/cleanig_title_up_motion"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".mainHabits.sleepingHabit.cleaningHabit.CleaningMain">
+
+        <com.github.florent37.shapeofview.shapes.ArcView
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="40dp"
+            app:shape_arc_position="bottom">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_cleaning_image" />
+        </com.github.florent37.shapeofview.shapes.ArcView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cleaning_habit_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/cleaning_efficiency"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/display1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/swipe"
+                    android:translationZ="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/title1"
+                    app:layout_constraintTop_toTopOf="@+id/title1" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title1" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clean_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/undo_button">
+
+                    <ImageView
+                        android:id="@+id/connector"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/connector_first"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/clean_text1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@{savedState.bedroomText}"
+                        setColor="@{savedState.bedroomColor}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="How would you describe state of your living room and
+bedroom?" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clean_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clean_layout1"
+                    setVisibility="@{savedState.kitchenVisibility}">
+
+                    <ImageView
+                        android:id="@+id/connector2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/connector"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/clean_text2"
+                        setColor="@{savedState.kitchenColor}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@{savedState.kitchenText}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="How would you describe state of your kitchen?" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/rate_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clean_layout2"
+                    android:gravity="center"
+                    setVisibility="@{savedState.ratingVisibility}">
+
+                    <Button
+                        android:id="@+id/clean_button"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:text="@string/clean"
+                        android:padding="0dp"
+                        android:layout_marginEnd="4dp"
+                        android:textSize="@dimen/min"
+                        android:textAllCaps="false"/>
+                    <Button
+                        android:id="@+id/part_clean_button"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:text="@string/partially_clean"
+                        android:layout_marginEnd="4dp"
+                        android:padding="0dp"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/min"/>
+                    <Button
+                        android:id="@+id/part_unclean_button"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:text="@string/partially_unclean"
+                        android:layout_marginEnd="4dp"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/min"
+                        android:padding="0dp"/>
+                    <Button
+                        android:id="@+id/unclean_button"
+                        android:layout_width="0dp"
+                        android:layout_height="70dp"
+                        android:layout_weight="1"
+                        android:text="@string/unclean"
+                        android:layout_marginEnd="4dp"
+                        android:textAllCaps="false"
+                        android:textSize="@dimen/min"
+                        android:padding="0dp"/>
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clean_layout3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rate_layout"
+                    setVisibility="@{savedState.dishesVisibility}">
+
+                    <ImageView
+                        android:id="@+id/connector3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/connector"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/clean_text3"
+                        setColor="@{savedState.dishesColor}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:text="@{savedState.dishesText}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/do_you_have_any_dishes" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clean_layout4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clean_layout3"
+                    tools:visibility="gone"
+                    setVisibility="@{savedState.clothesVisibility}">
+
+                    <ImageView
+                        android:id="@+id/connector4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/connector_last"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/clean_text4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        setColor="@{savedState.clothesColor}"
+                        android:textSize="@dimen/display1"
+                        android:text="@{savedState.clothesText}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/do_you_have_any_dishes" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/undo_button"
+                    setVisibility="@{savedState.undoVisibility}"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:drawableTop="@drawable/ic_baseline_undo_24"
+                    app:layout_constraintBottom_toTopOf="@id/clean_layout1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view_pager" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/submitted_text" />
+
+                <LinearLayout
+                    android:id="@+id/yes_no_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clean_layout4"
+                    setVisibility="@{savedState.yesNoVisibility}"
+                    >
+
+                    <Button
+                        android:id="@+id/yes_button"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="100dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_weight="1"
+                        android:text="@string/yes"
+                        />
+
+                    <Button
+                        android:id="@+id/no_button"
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="100dp"
+                        android:layout_weight="1"
+                        android:text="@string/no" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/submitted_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="16dp"
+                    android:gravity="center"
+                    android:textColor="@color/primary"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                    setVisibility="@{savedState.submitTextVisibility}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/yes_no_layout" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/floating_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/submit"
+                android:src="@drawable/add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/howItWorks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/how_it_works"
+                android:gravity="center"
+                android:text="@string/how_it_works"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/fab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/add_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/submit"
+                android:gravity="center"
+                android:text="@string/add_change_times"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/howItWorks"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                setVisibility="@{savedState.submitVisibility}"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</layout>

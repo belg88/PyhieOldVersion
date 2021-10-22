@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="@string/main_activities"
+        android:icon="@drawable/ic_baseline_stars_24"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/secondaryFragment"
+        android:title="@string/good_habits"
+        android:icon="@drawable/ic_baseline_thumb_up_24"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/challengeFragment"
+        android:title="@string/bad_habits"
+        android:icon="@drawable/ic_baseline_thumb_down_24"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/accountFragment"
+        android:title="@string/my_account"
+        android:icon="@drawable/ic_my_account"
+        app:showAsAction="ifRoom"
+        />
+
+</menu>

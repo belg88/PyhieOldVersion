@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eatingViewModel"
+            type="gleb.apps.pyhie.mainHabits.sleepingHabit.eatingHabit.EatingViewModel" />
+
+        <variable
+            name="savedState"
+            type="gleb.apps.pyhie.mainHabits.sleepingHabit.eatingHabit.EatingSavedState" />
+    </data>
+
+
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layoutDescription="@xml/eating_title_up_motion">
+
+        <com.github.florent37.shapeofview.shapes.ArcView
+            android:id="@+id/background"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shape_arc_cropDirection="outside"
+            app:shape_arc_height="40dp"
+            app:shape_arc_position="bottom">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/eating_image" />
+        </com.github.florent37.shapeofview.shapes.ArcView>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eating_habit_title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/background">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/eating_quality"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/display1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/eating_log"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textColor="@color/primary"
+                    android:textSize="@dimen/display1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_pager" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:src="@drawable/swipe"
+                    android:translationZ="4dp"
+                    app:layout_constraintStart_toEndOf="@+id/title1"
+                    app:layout_constraintTop_toTopOf="@+id/title1" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title1" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:items="@{eatingViewModel.eatingData}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title2" />
+
+                <Button
+                    android:id="@+id/undo_button"
+                    setVisibility="@{savedState.undoVisibility}"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:drawableTop="@drawable/ic_baseline_undo_24"
+                    app:layout_constraintBottom_toTopOf="@id/meal1_layout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/recyclerView" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/meal1_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/undo_button">
+
+                    <ImageView
+                        android:id="@+id/connector"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/ic_cutlery"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/meal_text1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{savedState.meal1Text}"
+                        android:textColor="@{savedState.mealColor1}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Your goal is to have first meal at 00:00\nIt was healthy" />
+
+                    <TextView
+                        android:id="@+id/meal_text_pref1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@{savedState.meal1PrefText}"
+                        setVisibility="@{savedState.prefTextVisibility1}"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector"
+                        app:layout_constraintTop_toBottomOf="@id/meal_text1"
+                        tools:text="Your goal is to have first meal at 00:00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/meal2_layout"
+                    setVisibility="@{savedState.mealVisibility2}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal1_layout">
+
+                    <ImageView
+                        android:id="@+id/connector2"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/ic_cutlery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/meal_text2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{savedState.meal2Text}"
+                        android:textColor="@{savedState.mealColor2}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector2"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Your goal is to have first meal at 00:00\nIt was healthy" />
+
+                    <TextView
+                        android:id="@+id/meal_text_pref2"
+                        setVisibility="@{savedState.prefTextVisibility2}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@{savedState.meal2PrefText}"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector2"
+                        app:layout_constraintTop_toBottomOf="@id/meal_text2"
+                        tools:text="Your goal is to have first meal at 00:00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/meal3_layout"
+                    setVisibility="@{savedState.mealVisibility3}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal2_layout">
+
+                    <ImageView
+                        android:id="@+id/connector3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/ic_cutlery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/meal_text3"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{savedState.meal3Text}"
+                        android:textColor="@{savedState.mealColor3}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Your goal is to have first meal at 00:00\nIt was healthy" />
+
+                    <TextView
+                        android:id="@+id/meal_text_pref3"
+                        setVisibility="@{savedState.prefTextVisibility3}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:text="@{savedState.meal3PrefText}"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector3"
+                        app:layout_constraintTop_toBottomOf="@id/meal_text3"
+                        tools:text="Your goal is to have first meal at 00:00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/meal4_layout"
+                    setVisibility="@{savedState.mealVisibility4}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal3_layout">
+
+                    <ImageView
+                        android:id="@+id/connector4"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/ic_cutlery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/meal_text4"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{savedState.meal4Text}"
+                        android:textColor="@{savedState.mealColor4}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Your goal is to have first meal at 00:00\nIt was healthy" />
+
+                    <TextView
+                        android:id="@+id/meal_text_pref4"
+                        setVisibility="@{savedState.prefTextVisibility4}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:text="@{savedState.meal4PrefText}"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector4"
+                        app:layout_constraintTop_toBottomOf="@id/meal_text4"
+                        tools:text="Your goal is to have first meal at 00:00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/meal5_layout"
+                    setVisibility="@{savedState.mealVisibility5}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal4_layout">
+
+                    <ImageView
+                        android:id="@+id/connector5"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="16dp"
+                        android:contentDescription="@string/sleep_preferences"
+                        android:src="@drawable/ic_cutlery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/meal_text5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:lineSpacingExtra="4dp"
+                        android:text="@{savedState.meal5Text}"
+                        android:textColor="@{savedState.mealColor5}"
+                        android:textSize="@dimen/display1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Your goal is to have first meal at 00:00\nIt was healthy" />
+
+                    <TextView
+                        android:id="@+id/meal_text_pref5"
+                        setVisibility="@{savedState.prefTextVisibility5}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@{savedState.meal5PrefText}"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/connector5"
+                        app:layout_constraintTop_toBottomOf="@id/meal_text5"
+                        tools:text="Your goal is to have first meal at 00:00" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ratings_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/meal5_layout"
+                    setVisibility="@{savedState.ratingsLayoutVisibility}">
+
+                    <Button
+                        android:id="@+id/eat_time_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:text="@string/select_time"
+                        android:textAllCaps="true"
+                        android:textSize="12sp"
+                        setVisibility="@{savedState.eatTimeButtonVisibility}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                    <LinearLayout
+                        android:id="@+id/healthy_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        >
+                        <Button
+                            android:id="@+id/healthy_button"
+                            android:text="@string/healthy"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textSize="@dimen/min"
+                            android:textAllCaps="false"
+                            android:padding="0dp"/>
+                        <Button
+                            android:id="@+id/part_healthy_button"
+                            android:text="@string/partially_healthy"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/min"
+                            android:padding="0dp"/>
+                        <Button
+                            android:id="@+id/part_unhealthy_button"
+                            android:text="@string/partially_unhealthy"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/min"
+                            android:padding="0dp"/>
+                        <Button
+                            android:id="@+id/unhealthy_button"
+                            android:text="@string/unhealthy"
+                            android:padding="0dp"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/min"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/how_much_eat_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        >
+                        <Button
+                            android:id="@+id/overeaten_button"
+                            android:text="@string/overeaten"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textSize="@dimen/min"
+                            android:textAllCaps="false"
+                            android:padding="0dp"/>
+                        <Button
+                            android:id="@+id/just_enough_button"
+                            android:text="@string/ate_just_enough"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/min"
+                            android:padding="0dp"/>
+                        <Button
+                            android:id="@+id/not_enough_button"
+                            android:text="@string/ate_not_enough"
+                            android:layout_width="0dp"
+                            android:layout_height="70dp"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="4dp"
+                            android:textAllCaps="false"
+                            android:textSize="@dimen/min"
+                            android:padding="0dp"/>
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ratings_layout"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/floating_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/submit"
+                android:src="@drawable/add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/howItWorks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/how_it_works"
+                android:gravity="center"
+                android:text="@string/how_it_works"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/fab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/add_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/submit"
+                android:gravity="center"
+                android:text="@string/add_change_times"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/howItWorks"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/submit_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                setVisibility="@{savedState.submitVisibility}"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="visible_">0</integer>
+    <integer name="invisible_">1</integer>
+    <integer name="gone_">2</integer>
+</resources>

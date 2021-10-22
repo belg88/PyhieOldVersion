@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216043728423",
+    "project_id": "pyhie-b3325",
+    "storage_bucket": "pyhie-b3325.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216043728423:android:5cd8d216b986be1fec2802",
+        "android_client_info": {
+          "package_name": "gleb.apps.pyhie"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216043728423-4a6nc6qs61ujl5qse19sceudo9bahr40.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpeEt1fbNeXq8hzjXwp_qAAr6Luf7P54k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216043728423-4a6nc6qs61ujl5qse19sceudo9bahr40.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

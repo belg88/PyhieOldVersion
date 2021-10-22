@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginTop="8dp"
+
+    >
+    <data>
+        <variable
+            name="eatingData"
+            type="gleb.apps.pyhie.pojos.EatingData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_pyhie"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/toolbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{eatingData.weekdayString}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="@dimen/large_inner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/light_grey"
+            tools:text="28-AUG-2021" />
+        <TextView
+            android:id="@+id/title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@{eatingData.dateString}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="@dimen/large_inner"
+            app:layout_constraintStart_toEndOf="@id/toolbar"
+            android:textColor="@color/light_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Monday" />
+
+        <TextView
+            android:id="@+id/eatTimes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/inner_text"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            tools:text="You went to bed at \nYou  woke up at"
+            android:lineSpacingExtra="8dp"
+            android:text="@{eatingData.eatingTimeString()}"/>
+
+        <TextView
+            android:id="@+id/points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/inner_text"
+            app:layout_constraintStart_toStartOf="@+id/toolbar"
+            app:layout_constraintTop_toBottomOf="@+id/eatTimes"
+            android:text="@string/quality_item"
+            />
+        <ImageView
+            android:id="@+id/quality_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            app:layout_constraintStart_toEndOf="@id/points"
+            app:layout_constraintTop_toBottomOf="@+id/eatTimes"
+            tools:src="@drawable/happy_24"
+            setSrc="@{eatingData.qualityImage}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

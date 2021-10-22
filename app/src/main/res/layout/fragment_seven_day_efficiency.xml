@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    tools:context=".mainHabits.sleepingHabit.ThisWeekQuality">
+
+    <ProgressBar
+        android:id="@+id/efficiency_bar"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/progress_circle"
+        app:layout_constraintBottom_toBottomOf="@+id/graph_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/graph_view" />
+
+
+    <TextView
+        android:id="@+id/quality_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        tools:text="100%"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/efficiency_bar"
+        app:layout_constraintEnd_toEndOf="@+id/efficiency_bar"
+        app:layout_constraintStart_toStartOf="@+id/efficiency_bar"
+        app:layout_constraintTop_toTopOf="@+id/efficiency_bar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="@string/last_7_days"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textSize="@dimen/large_inner"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/efficiency_bar"
+        app:layout_constraintStart_toStartOf="@+id/efficiency_bar"
+        app:layout_constraintTop_toBottomOf="@+id/efficiency_bar" />
+
+    <gleb.apps.pyhie.util.GraphView
+        android:id="@+id/graph_view"
+        android:layout_width="0dp"
+        android:layout_height="140dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/efficiency_bar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

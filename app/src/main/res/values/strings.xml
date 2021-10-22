@@ -1,0 +1,247 @@
+<resources>
+    <string name="app_name">Pyhie</string>
+    <string name="main_activities">Main Habits</string>
+    <string name="my_account">Me</string>
+    <string name="good_habits">Good Habits</string>
+    <string name="bad_habits">Bad Habits</string>
+    <string name="good_morning">GOOD MORNING!\n %s</string>
+    <string name="good_afternoon">GOOD AFTERNOON!\n %s</string>
+    <string name="good_evening">GOOD EVENING!\n %s</string>
+    <string name="good_noght">GOOD NIGHT. \n %s</string>
+
+
+    <string name="wentToBed">You went to bed at %d hours and %d minutes</string>
+    <string name="wokeUp">You woke up at %d hours and %d minutes</string>
+    <string name="read_about">Read about main habits</string>
+    <string name="how_it_works">How it works</string>
+    <string name="menu_daily_advice">Daily advices</string>
+    <string name="notification_channel_one">channel one</string>
+    <string name="notification_description">not descr</string>
+    <string name="activities_not_completed">You still have main habits that you have not completed today.</string>
+    <string name="its_time_for_breakfast.">It\'s time for your breakfast.</string>
+    <string name="its_time_for_lunch.">It\'s time for your lunch.</string>
+    <string name="its_time_for_dinner.">It\'s time for your dinner.</string>
+    <string name="notification_name">Activities Reminder</string>
+    <string name="sleeping_habit">Sleeping routine</string>
+    <string name="eating_habit">Eating routine</string>
+    <string name="balanced">Balanced</string>
+    <string name="daily_planing">Daily Planing</string>
+    <string name="cleaning_habit">Cleaning and Organising</string>
+    <string name="percent">%</string>
+
+    <!-- Sleeping habit strings. -->
+    <string name="your_sleeping_efficiency">Your sleeping efficiency</string>
+    <string name="overall">Overall</string>
+    <string name="last_7_days">This week</string>
+    <string name="sleep_quality">Sleep quality</string>
+    <string name="previous_days">Previous days</string>
+    <string name="time_slept">You went to bed at %s and woke up at %s</string>
+    <string name="sleepDuration">Time slept: %d hours</string>
+    <string name="points_earned">Points earned: %.1f</string>
+    <string name="sleep_log">Sleep log</string>
+    <string name="sleep_prefernces">Show your sleep preferences</string>
+    <string name="what_time_did_you_go_to_bed">What time did you go to bed last night?</string>
+    <string name="what_time_did_you_woke_up">What time did you woke up?</string>
+    <string name="submit">Submit</string>
+    <string name="submit_cap">SUBMIT</string>
+    <string name="went_to_bed1"> You went to bed at %02d:%02d.</string>>
+    <string name="woke_up1"> You woke up at %02d:%02d.</string>
+    <string name="add_more_sleep_times">Add more sleep times</string>
+    <string name="what_time_you_prefer_to_wake_up">What time you prefer to wake up?</string>
+    <string name="what_time_you_prefer_to_go_to_bed">What time you prefer to go to bed?</string>
+    <string name="change">CHANGE</string>
+    <string name="slept_well">Slept well</string>
+    <string name="slept_as_usual">Slept as usual</string>
+    <string name="slept_badly">Slept badly</string>
+
+    <string name="great_overall">Well done! Your overall %s is great!</string>
+    <string name="not_bad_overall">Not bad! Your overall %s is satisfactory!</string>
+    <string name="room_for_overall">Room for improvement. Your overall %s can be better.</string>
+    <string name="bad_overall">Need for improvement. Your overall %s needs to get better.</string>
+
+
+    <string name="preferred_bed_times">Your goal is to go to bed at %02d:%02d</string>
+    <string name="preferred_woke_up_times">Your goal is to wake up at %02d:%02d</string>
+    <string name="change_remove_sleeping_times">Change/Remove sleeping times</string>
+    <string name="change_sleep_times">Change sleep times</string>
+    <string name="sleep_preferences">Sleep Preferences</string>
+    <string name="add_more">Add more</string>
+    <string name="close">Close</string>
+    <string name="save">Save</string>
+    <string name="last_week">Last week</string>
+    <string name="average_time_slept">Average time slept: %d hours %d minutes</string>
+    <string name="average_time_waking_up">Average time waking up: %02d:%d</string>
+    <string name="average_time_going_to_bed">Average time going to bed: %02d:%02d</string>
+
+    <string name="well_done">Well done!</string>
+    <string name="habit_is_now_complete">%s is now complete</string>
+    <string name="you_ve_earned_points">You\'ve earned %.1f points!</string>
+
+    <!-- Eating habit strings. -->
+    <string name="show_eating_preferences">Show eating preferences</string>
+    <string name="eating_quality">Eating quality</string>
+    <string name="eating_log">Eating Log</string>
+    <string name="add_more_meals">Add more meals</string>
+    <string name="pref_meal1">Your goal is to have first meal at %02d:%02d</string>
+    <string name="pref_meal2">Your goal is to have second meal at %02d:%02d</string>
+    <string name="pref_meal3">Your goal is to have third meal at %02d:%02d</string>
+    <string name="pref_meal4">Your goal is to have fourth meal at %02d:%02d</string>
+    <string name="pref_meal5">Your goal is to have fifth meal at %02d:%02d</string>
+    <string name="meal_one_button">First meal was at %02d:%02d. It was %s. You %s</string>
+    <string name="meal_two_button">You had second meal at %02d:%02d. It was %s. You %s</string>
+    <string name="meal_three_button">You had third meal at %02d:%02d. It was %s. You %s</string>
+    <string name="meal_four_button">You had fourth meal at %02d:%02d. It was %s. You %s</string>
+    <string name="meal_fifth_button">You had fifth meal at %02d:%02d. It was %s.You %s</string>
+    <string name="how_healthy">Would you say your meal was:</string>
+    <string name="unhealthy">Unhealthy</string>
+    <string name="partially_unhealthy">Partially unhealthy</string>
+    <string name="partially_healthy">Partially healthy</string>
+    <string name="healthy">Healthy</string>
+    <string name="and_it_was">It was %s</string>
+    <string name="health_text"> Your meal was %s</string>
+    <string name="change_add_times">Change/add times</string>
+    <string name="would_you_say">Would you say that you:</string>
+    <string name="kitchen_text_done">Your kitchen is %s</string>
+    <string name="overeaten">Overeaten</string>
+    <string name="ate_just_enough">Ate just enough</string>
+    <string name="ate_not_enough">Ate not enough</string>
+
+
+    <!--Planner strings -->
+    <string name="woke_up_time_planner">Wake up time %s</string>
+    <string name="bed_time_planner">Bed time %s</string>
+    <string name="meals_planner">%s meal</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="daily_activity">Daily Activity</string>
+    <string name="select_time">Select time</string>
+    <string name="time">%02d:%02d</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="completed">Completed</string>
+    <string name="not_completed">Not completed</string>
+    <string name="remaining_activities">You have %d uncompleted activities today.</string>
+    <string name="complete_planner">Complete your daily planner for tomorrow.\n %s </string>
+    <string name="sleeping_habit_title">Sleeping Routine</string>
+    <string name="add_change_times">Add/Change Times</string>
+    <string name="eating_habit_title">Eating Routine</string>
+    <string name="tomorrow_is_completed">Great! Your planner for tomorrow is completed.</string>
+    <string name="main_habit_is_completed">Thank you! %s is completed for today.</string>
+
+    <!--Cleaning strings -->
+    <string name="cleaning_habit_title">Cleaning Habit</string>
+    <string name="cleaning_efficiency">Cleaning Efficiency</string>
+    <string name="clean">Clean</string>
+    <string name="unclean">Unclean</string>
+    <string name="partially_clean">Partially clean</string>
+    <string name="partially_unclean">Partially unclean</string>
+    <string name="do_you_have_any_dishes">Look around you living area, does it look organised and everything is where it suppose to be?</string>
+    <string name="do_you_have_any_dishes_yes">Your living area is organised.</string>
+    <string name="do_you_have_any_dishes_no">Your living area is not organised.</string>
+    <string name="do_you_have_any_clothes">Do you have any laundry that needs to be done?</string>
+    <string name="do_you_have_any_clothes_yes">You have some laundry that needs to be done.</string>
+    <string name="do_you_have_any_clothes_no">You don\'t have any laundry that needs to be done.</string>
+    <string name="bedroom_living_text">How would you describe state of your living room and bedroom?</string>
+    <string name="kitchen_text">How would you describe state of your kitchen?</string>
+    <string name="bedroom_living_text_done">Your bedroom and living room are %s</string>
+
+    <!--Challenges strings -->
+    <string name="you_have_a_new_challenge">You have a new challenge!</string>
+    <string name="reward_challenge">Reward: %d pts.</string>
+    <string name="time_remaining_challenge">Time limit: %s</string>
+    <string name="challenge_complete">Well done! %s is completed</string>
+    <string name="reward_complete">You earned additional %d points!</string>
+    <string name="challenge1_complete">Great! You completed your main habits before the end of the day.</string>
+    <string name="current_challenges">Current challenge</string>
+    <string name="no_challenges">You have no challenges. </string>
+    <string name="challenge_failed">Unfortunately you did not complete %s challenge. </string>
+
+    <!-- Intro -->
+    <string name="have_we_met_before">Have we met before?</string>
+    <string name="yes_i_have_an_account">Yes, I have an account</string>
+    <string name="no_i_m_new_here">No, I\'m new here.</string>
+    <string name="hi_there">Hi, there!</string>
+    <string name="your_name">Your name</string>
+    <string name="let_s_get_to_know_">Let\'s get to know each other.\nWhat\'s your name?</string>
+    <string name="nice_to_meet">Nice to meet you %s!</string>
+    <string name="before_we_carry_on">Before we carry on, would you mind telling us your email address.</string>
+    <string name="don_t_worry_we_wont">(Don\'t worry we won\'t use it to spam your inbox. We just need it to set up your account.)</string>
+    <string name="email">email</string>
+    <string name="great_we_love_meeting_new_people">Great! We love meeting new people!</string>
+    <string name="we_hope_that">We hope that by using this app, you will be able to balance your habits, even the bad ones, to have a more productive and stress free life.</string>
+    <string name="eat1">What time do you prefer having your first meal of the day?(i.e. breakfast)</string>
+    <string name="eat2">What time do you prefer having your second meal of the day?</string>
+    <string name="eat3">And what time do you prefer having your third meal of the day?</string>
+    <string name="finish_text1">I don\'t have second meal of the day. (Finish)</string>
+    <string name="finish_text2">I don\'t have third meal of the day. (Finish)</string>
+    <string name="thankyou">Thank you!</string>
+    <string name="log_in">Log in</string>
+    <string name="password">password</string>
+    <string name="and_what_time_do_you_prefer_to_wake_up">And what time do you prefer to wake up?</string>
+    <string name="welcome_to_pyhie">Welcome to pyhie %s!</string>
+    <string name="next">Next</string>
+    <string name="few_more_things">Few more things</string>
+    <string name="we_just_need">We just need to ask you a couple of questions about your daily routine.\nWhat time do you prefer going to bed?</string>
+    <string name="you_will_be_able_to_change">(You will be able to change or add more times later.)</string>
+
+
+    <string name="daily_advice1">You probably heard the term “Top one percent”, it usually refers to the most wealthy people in our society.
+        Now using this app will most likely not get you to be one of the wealthiest people in your society. But you could still be in the top one percent of most effective,
+        stress free or successful people, and it’s not that hard.\n\n
+        How? Well study after study showed that people with regular sleeping and eating patterns are less prone to stress, they are getting less tired and in general have more energy throughout the day.
+        On top of that people who keep and follow a daily planner are more organised and more effective at what they do, and same goes for people who regularly clean and organise their living area.\n\n
+        Did you know that only 22% of people in the United Kingdom sleep in regular patterns, less than 10% monitor their sleep times.
+        Only about 28% of people have their food at the same time every day. About 18% clean and organise their living area regularly and about 10% keep a daily planner.
+        So in total only about 1% - 2% of people will do all these things at the same time, and it is very likely that these people are the most effective and stress free around us.\n\n
+        So by simply organising these simple activities into your daily habits, will put you into the “Top one percent”.
+</string>
+    <string name="unfortunately_you_missed_deadline_for_this_habit">Unfortunately you missed deadline for this habit.</string>
+    <string name="_10_points">- 10 points</string>
+    <string name="back">Back</string>
+    <string name="message1">Consistency is a key to success. This is why you are required to complete your main habits daily, each main habit should be completed before midnight.\n
+        Failure to do so will results in losing 10 points for each habit that you missed.</string>
+    <string name="message2">Don\'t forget you can add more sleeps to your sleeping habit, if you like having a nap in the afternoon :) </string>
+    <string name="don_t_forget_you_need_to_submit_main_habits_every_day_before_midnight_in_order_to_avoid_penalty_points">(Don\'t forget you need to submit main habits every day before midnight in order to avoid penalty points.)</string>
+    <string name="be_in_the_top_one_percent">Be in the top one percent.</string>
+    <string name="daily_advice">Daily advice</string>
+    <string name="daily_advice2_title">Let sleep by your ally, not enemy.</string>
+    <string name="daily_advice2">We spend one third of our lives asleep, it is a major indicator of our well being. Having a good night\'s sleep is essential to your health, same as a healthy diet and exercise.
+        \n\nOn the other hand, having irregular sleeping patterns could cause sleep deprivation on a daily basis. When a person is deprived of sleep, he will get tired more quickly and will have difficulty maintaining focus. Your brain will recognize this as a dangerous behaviour, and will send stress signals to his body, making you even more prone to anxiety and stress attacks.
+        \n\nIt has been proven many times that people who wake up and go to bed at the same time are more confident and less prone to stress and fatigue.
+</string>
+    <string name="daily_advice3_title">We are what we eat.</string>
+    <string name="daily_advice3">Our well being is directly linked to what we consume. It is not a secret to anyone that consuming good food is essential for our health. But in our daily lives it can be difficult to keep track of what we eat, this is why it is good to develop your own eating schedule.
+        \n\nConsuming and digesting food is a difficult and complex process, having food at the same time every day will get our body more efficient at getting through this process. It is like a sort of training, when we do things at the time our body is expecting to do it, it will do it more efficiently.
+        \n\nMaintaining healthy eating habits will help you be more energetic and less prone to stress.
+</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="reset_your_password">reset your password</string>
+    <string name="back_to_main_menu">Back to main menu</string>
+    <string name="you_reached_level">You Reached Level %d!</string>
+    <string name="my_account_title">My Account</string>
+    <string name="notifications">Notifications</string>
+    <string name="name">Name:</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="quality_item">Quality:</string>
+
+    <!--  How it works -->
+    <string name="how_it_works_main_habits">These are the activities that you are required to complete each day. You will be awarded points for completing each habit,
+        the maximum amount of points you can receive for each habit is ten.
+        \nPlease remember not completing these habits before midnight will result in losing points!
+</string>
+    <string name="how_it_works_good_bad_habits">These are the optional activities that you can activate, if you have the right level.
+        As these activities are optional you will not lose points for not completing them. But you will earn points for completing them.
+        \nEach activity will start at level one, the more you progress within the activity the more points you will earn.</string>
+    <string name="good_and_bad_title">Good and Bad Habits</string>
+    <string name="how_sleeping_routine">In order to complete this activity, simply enter when you went to bed and when you woke up and how you slept.
+        The closer you are to your preferred time and the better you sleep the more points you will get (max. 10).</string>
+    <string name="how_eating_routine">In order to complete this activity, simply enter the times you had your meals. It is up to you to decide how healthy your food is.
+    The healthier you eat and the closer your actual meal time is to the preferred one, the more points you will get (max. 10)</string>
+    <string name="how_cleaning_habit">This one is straight forward the cleaner and more organised your living space is, the more points you will get. (max. 10)</string>
+    <string name="how_planning_habit">In order to complete this activity, you must first enter the required amount of activities for tomorrow\'s planner.
+        Then mark off all the activities that you completed today and press submit. The more activities you complete the more points you will get. (max 10)</string>
+
+
+</resources>
